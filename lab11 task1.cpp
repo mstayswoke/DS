@@ -15,54 +15,95 @@
 //    return newNode;
 //}
 //
+//Node* insert(Node* root, int val) {
+//    if (root == NULL) {
+//        return createNode(val);
+//    }
+//    if (val < root->data) {
+//        root->left = insert(root->left, val);
+//    }
+//    else if (val > root->data) {
+//        root->right = insert(root->right, val);
+//    }
+//    return root;
+//}
 //
 //void inorder(Node* root) {
 //    if (root == NULL) {
-//        return;   
+//        return;
 //    }
-//    inorder(root->left);         
-//    cout << root->data << " "; 
-//    inorder(root->right);          
+//    inorder(root->left);
+//    cout << root->data << " ";
+//    inorder(root->right);
 //}
 //
 //void preorder(Node* root) {
 //    if (root == NULL) {
 //        return;
 //    }
-//    cout << root->data << " ";     
-//    preorder(root->left);          
-//    preorder(root->right);        
+//    cout << root->data << " ";
+//    preorder(root->left);
+//    preorder(root->right);
 //}
+//
 //void postorder(Node* root) {
 //    if (root == NULL) {
 //        return;
 //    }
-//    postorder(root->left);         
-//    postorder(root->right);      
-//    cout << root->data << " ";     
+//    postorder(root->left);
+//    postorder(root->right);
+//    cout << root->data << " ";
+//}
+//
+//bool search(Node* root, int key) {
+//    if (root == NULL) {
+//        return false;
+//    }
+//    if (root->data == key) {
+//        return true;
+//    }
+//    if (key < root->data) {
+//        return search(root->left, key);
+//    }
+//    else {
+//        return search(root->right, key);
+//    }
 //}
 //
 //int main() {
+//    Node* root = NULL;
+//    int n, val, searchKey;
 //
-//    Node* root = createNode(10);
-//    root->left = createNode(5);
-//    root->right = createNode(15);
-//    root->left->left = createNode(3);
-//    root->left->right = createNode(7);
-//    root->right->left = createNode(12);
-//    root->right->right = createNode(18);
+//    cout << "Enter number of values to insert: ";
+//    cin >> n;
 //
-//    cout << "Inorder traversal: ";
+//    cout << "Enter values: ";
+//    for (int i = 0; i < n; i++) {
+//        cin >> val;
+//        root = insert(root, val);
+//    }
+//
+//    cout << "Inorder: ";
 //    inorder(root);
 //    cout << endl;
 //
-//    cout << "Preorder traversal: ";
+//    cout << "Preorder: ";
 //    preorder(root);
 //    cout << endl;
 //
-//    cout << "Postorder traversal: ";
+//    cout << "Postorder: ";
 //    postorder(root);
 //    cout << endl;
+//
+//    cout << "Enter value to search: ";
+//    cin >> searchKey;
+//
+//    if (search(root, searchKey)) {
+//        cout << "Key found in BST" << endl;
+//    }
+//    else {
+//        cout << "Key not found in BST" << endl;
+//    }
 //
 //    return 0;
 //}

@@ -28,57 +28,62 @@
 //    return root;
 //}
 //
-//// using recursion for going left or right
-//bool search(Node* root, int key) {
-//    // base case 1 if reached end and value is not found
-//    if (root == NULL) {
-//        return false;
-//    }
-//    // base case 2 value is found
-//    if (root->data == key) {
+//bool isIdentical(Node* root1, Node* root2) {
+//    if (root1 == NULL && root2 == NULL) {
 //        return true;
 //    }
-//    // if key is smaller then it should be in left subtree
-//    if (key < root->data) {
-//        return search(root->left, key);
+//    if (root1 == NULL || root2 == NULL) {
+//        return false;
 //    }
-//    // otherwise it must be in right subtree
-//    else {
-//        return search(root->right, key);
+//    if (root1->data != root2->data) {
+//        return false;
 //    }
+//    return isIdentical(root1->left, root2->left) && isIdentical(root1->right, root2->right);
 //}
 //
 //void inorder(Node* root) {
-//    if (root == NULL) return;
+//    if (root == NULL) {
+//        return;
+//    }
 //    inorder(root->left);
 //    cout << root->data << " ";
 //    inorder(root->right);
 //}
 //
 //int main() {
-//    Node* root = NULL;
-//    int searchVal;
+//    Node* root1 = NULL;
+//    Node* root2 = NULL;
+//    int n1, n2, val;
 //
-//    root = insert(root, 50);
-//    root = insert(root, 30);
-//    root = insert(root, 70);
-//    root = insert(root, 20);
-//    root = insert(root, 40);
-//    root = insert(root, 60);
-//    root = insert(root, 80);
+//    cout << "Enter number of nodes for first BST: ";
+//    cin >> n1;
+//    cout << "Enter values: ";
+//    for (int i = 0; i < n1; i++) {
+//        cin >> val;
+//        root1 = insert(root1, val);
+//    }
 //
-//    cout << "tree elements: ";
-//    inorder(root);
+//    cout << "Enter number of nodes for second BST: ";
+//    cin >> n2;
+//    cout << "Enter values: ";
+//    for (int i = 0; i < n2; i++) {
+//        cin >> val;
+//        root2 = insert(root2, val);
+//    }
+//
+//    cout << "First BST inorder: ";
+//    inorder(root1);
 //    cout << endl;
 //
-//    cout << "enter value to search: ";
-//    cin >> searchVal;
+//    cout << "Second BST inorder: ";
+//    inorder(root2);
+//    cout << endl;
 //
-//    if (search(root, searchVal)) {
-//        cout << searchVal << " found in the BST" << endl;
+//    if (isIdentical(root1, root2)) {
+//        cout << "BSTs are identical" << endl;
 //    }
 //    else {
-//        cout << searchVal << " not found in the BST" << endl;
+//        cout << "BSTs are not identical" << endl;
 //    }
 //
 //    return 0;
